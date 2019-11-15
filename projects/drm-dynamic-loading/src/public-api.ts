@@ -1,5 +1,5 @@
 /*
- * Public API Surface of dynamic-loading
+ * Public API Surface of drm-dynamic-loading
  */
 
 export {

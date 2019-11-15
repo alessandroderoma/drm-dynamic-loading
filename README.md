@@ -1,27 +1,68 @@
-# DrmDynamicLoading
+# drm-dynamic-loading
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
+Angular component for showing loading spinners.
 
-## Development server
+###Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Add module declaration in your module:
 
-## Code scaffolding
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    DynamicLoadingModule, // <- here
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Use the component:
 
-## Build
+```typescript
+<drm-dynamic-loading component="component1">
+  <drm-loaded-content>component1</drm-loaded-content>
+</drm-dynamic-loading>
+<!-- standard spinner with custom color (supports all html colors) -->
+<drm-dynamic-loading component="component2" color="green">
+  <drm-loaded-content>component2</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component3">
+  <drm-loaded-content>component3</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component4">
+  <drm-loaded-content>component4</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component5">
+  <drm-loaded-content>component5</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component6">
+  <drm-loaded-content>component6</drm-loaded-content>
+  <!-- this is for custom loading spinners -->
+  <drm-custom-loading-spinner>
+    <img src="https://media.giphy.com/media/13gvXfEVlxQjDO/giphy.gif" width="100">
+  </drm-custom-loading-spinner>
+</drm-dynamic-loading>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<!-- this is global and starts when the first loader starts and ends when the last loader ends -->
+<drm-dynamic-loading color="red"></drm-dynamic-loading>
+```
 
-## Running unit tests
+Import the service:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { DynamicLoadingService } from drm-dynamic-loading;
+```
 
-## Running end-to-end tests
+Inject the service in your component and use it to start/stop loading:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```typescript
+drm-dynamic-loading
+loadingService.startLoading('component1');
+// ... do heavy work here
+loadingService.stopLoading('component1');
+```

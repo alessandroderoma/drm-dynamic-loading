@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "dynamic-loading": [
-        "dist/dynamic-loading"
+      "drm-dynamic-loading": [
+        "dist/drm-dynamic-loading"
       ],
-      "dynamic-loading/*": [
-        "dist/dynamic-loading/*"
+      "drm-dynamic-loading/*": [
+        "dist/drm-dynamic-loading/*"
       ]
     }
   },

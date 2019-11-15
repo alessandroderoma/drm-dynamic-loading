@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { DynamicLoadingModule } from 'dynamic-loading';
+import { DynamicLoadingModule } from 'drm-dynamic-loading';
 
 @NgModule({
   declarations: [

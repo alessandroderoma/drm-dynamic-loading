@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "drm-dynamic-loading": {
+    "drm-dynamic-loading-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/drm-dynamic-loading",
+            "outputPath": "dist/drm-dynamic-loading-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "drm-dynamic-loading:build"
+            "browserTarget": "drm-dynamic-loading-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "drm-dynamic-loading:build:production"
+              "browserTarget": "drm-dynamic-loading-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "drm-dynamic-loading:build"
+            "browserTarget": "drm-dynamic-loading-app:build"
           }
         },
         "test": {
@@ -115,43 +115,43 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "drm-dynamic-loading:serve"
+            "devServerTarget": "drm-dynamic-loading-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "drm-dynamic-loading:serve:production"
+              "devServerTarget": "drm-dynamic-loading-app:serve:production"
             }
           }
         }
       }
     },
-    "dynamic-loading": {
+    "drm-dynamic-loading": {
       "projectType": "library",
-      "root": "projects/dynamic-loading",
-      "sourceRoot": "projects/dynamic-loading/src",
+      "root": "projects/drm-dynamic-loading",
+      "sourceRoot": "projects/drm-dynamic-loading/src",
       "prefix": "drm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/dynamic-loading/tsconfig.lib.json",
-            "project": "projects/dynamic-loading/ng-package.json"
+            "tsConfig": "projects/drm-dynamic-loading/tsconfig.lib.json",
+            "project": "projects/drm-dynamic-loading/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/dynamic-loading/src/test.ts",
-            "tsConfig": "projects/dynamic-loading/tsconfig.spec.json",
-            "karmaConfig": "projects/dynamic-loading/karma.conf.js"
+            "main": "projects/drm-dynamic-loading/src/test.ts",
+            "tsConfig": "projects/drm-dynamic-loading/tsconfig.spec.json",
+            "karmaConfig": "projects/drm-dynamic-loading/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/dynamic-loading/tsconfig.lib.json",
-              "projects/dynamic-loading/tsconfig.spec.json"
+              "projects/drm-dynamic-loading/tsconfig.lib.json",
+              "projects/drm-dynamic-loading/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -160,5 +160,5 @@
         }
       }
     }},
-  "defaultProject": "drm-dynamic-loading"
+  "defaultProject": "drm-dynamic-loading-app"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "drm-dynamic-loading",
+  "name": "drm-dynamic-loading-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

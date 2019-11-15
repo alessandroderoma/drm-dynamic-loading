@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DynamicLoadingService } from 'dynamic-loading';
+import { DynamicLoadingService } from 'drm-dynamic-loading';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { DynamicLoadingService } from 'dynamic-loading';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-dynamic-loading';
+  title = 'ng-drm-dynamic-loading';
   loading = false;
 
   constructor(
