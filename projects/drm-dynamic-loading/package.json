@@ -1,9 +1,21 @@
 {
   "name": "drm-dynamic-loading",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": "https://github.com/alessandroderoma/drm-dynamic-loading",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  }
+  },
+  "author": "Alessandro De Roma <http://github.com/alessandroderoma/>",
+  "description": "Angular component for showing loading spinners.",
+  "keywords": [
+    "angular8",
+    "angular",
+    "loading",
+    "spinner",
+    "dynamic",
+    "rxjs",
+    "reactive",
+    "global"
+  ]
 }
