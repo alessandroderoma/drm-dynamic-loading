@@ -61,7 +61,7 @@ import { DynamicLoadingService } from drm-dynamic-loading;
 Inject the service in your component and use it to start/stop loading:
 
 ```typescript
-drm-dynamic-loading
+// this will start loading spinner for "component1": <drm-dynamic-loading component="component1">
 loadingService.startLoading('component1');
 // ... do heavy work here
 loadingService.stopLoading('component1');
