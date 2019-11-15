@@ -1,24 +1,68 @@
-# DynamicLoading
+# drm-dynamic-loading
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+Angular component for showing loading spinners.
 
-## Code scaffolding
+###Usage
 
-Run `ng generate component component-name --project dynamic-loading` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project dynamic-loading`.
-> Note: Don't forget to add `--project dynamic-loading` or else it will be added to the default project in your `angular.json` file. 
+Add module declaration in your module:
 
-## Build
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    DynamicLoadingModule, // <- here
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng build dynamic-loading` to build the project. The build artifacts will be stored in the `dist/` directory.
+Use the component:
 
-## Publishing
+```typescript
+<drm-dynamic-loading component="component1">
+  <drm-loaded-content>component1</drm-loaded-content>
+</drm-dynamic-loading>
+<!-- standard spinner with custom color (supports all html colors) -->
+<drm-dynamic-loading component="component2" color="green">
+  <drm-loaded-content>component2</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component3">
+  <drm-loaded-content>component3</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component4">
+  <drm-loaded-content>component4</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component5">
+  <drm-loaded-content>component5</drm-loaded-content>
+</drm-dynamic-loading>
+<drm-dynamic-loading component="component6">
+  <drm-loaded-content>component6</drm-loaded-content>
+  <!-- this is for custom loading spinners -->
+  <drm-custom-loading-spinner>
+    <img src="https://media.giphy.com/media/13gvXfEVlxQjDO/giphy.gif" width="100">
+  </drm-custom-loading-spinner>
+</drm-dynamic-loading>
 
-After building your library with `ng build dynamic-loading`, go to the dist folder `cd dist/dynamic-loading` and run `npm publish`.
+<!-- this is global and starts when the first loader starts and ends when the last loader ends -->
+<drm-dynamic-loading color="red"></drm-dynamic-loading>
+```
 
-## Running unit tests
+Import the service:
 
-Run `ng test dynamic-loading` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { DynamicLoadingService } from drm-dynamic-loading;
+```
 
-## Further help
+Inject the service in your component and use it to start/stop loading:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```typescript
+drm-dynamic-loading
+loadingService.startLoading('component1');
+// ... do heavy work here
+loadingService.stopLoading('component1');
+```
