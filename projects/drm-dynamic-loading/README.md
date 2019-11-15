@@ -23,7 +23,7 @@ export class AppModule { }
 
 Use the component:
 
-```typescript
+```html
 <drm-dynamic-loading component="component1">
   <drm-loaded-content>component1</drm-loaded-content>
 </drm-dynamic-loading>
