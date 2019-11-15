@@ -1,0 +1,15 @@
+button {
+  outline: none;
+  background: blue;
+  border-radius: 5px;
+  border: 0;
+  padding: 1em;
+  color: white;
+  display: block;
+  cursor: pointer;
+  margin-top: 1em;
+  z-index: 999;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}

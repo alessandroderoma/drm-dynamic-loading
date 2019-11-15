@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "dynamic-loading": [
+        "dist/dynamic-loading"
+      ],
+      "dynamic-loading/*": [
+        "dist/dynamic-loading/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

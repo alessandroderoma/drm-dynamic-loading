@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "dynamic-loading": {
+      "projectType": "library",
+      "root": "projects/dynamic-loading",
+      "sourceRoot": "projects/dynamic-loading/src",
+      "prefix": "drm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dynamic-loading/tsconfig.lib.json",
+            "project": "projects/dynamic-loading/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dynamic-loading/src/test.ts",
+            "tsConfig": "projects/dynamic-loading/tsconfig.spec.json",
+            "karmaConfig": "projects/dynamic-loading/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dynamic-loading/tsconfig.lib.json",
+              "projects/dynamic-loading/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "drm-dynamic-loading"
 }

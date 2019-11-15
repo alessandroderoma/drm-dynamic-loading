@@ -1,0 +1,17 @@
+<div #customLoadingWrapper [style.display]="loading ? 'block' : 'none'">
+  <ng-content select="drm-custom-loading-spinner"></ng-content>
+</div>
+<div class="spinner-container" *ngIf="!hasCustomLoadingSpinner && loading" [ngClass]="{'global-spinner': global}">
+  <svg class="spinner" viewBox="0 0 50 50">
+    <circle
+      class="path"
+      cx="25"
+      cy="25"
+      r="20"
+      fill="none"
+      stroke-width="5"
+      [style.stroke]="color ? color : undefined"
+    ></circle>
+  </svg>
+</div>
+<ng-content select="drm-loaded-content" *ngIf="!loading"></ng-content>
