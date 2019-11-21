@@ -43,7 +43,6 @@ export class DynamicLoadingComponent implements OnInit, AfterViewInit {
       component,
       (event) => {
         this.loading = event.action === LoadingAction.START;
-        console.log(this.loading);
       },
     );
   }

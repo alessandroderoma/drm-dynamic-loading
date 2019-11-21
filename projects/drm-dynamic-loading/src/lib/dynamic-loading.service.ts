@@ -8,15 +8,11 @@ import { globalMetaComponent, LoadingAction, LoadingCallback, LoadingEvent } fro
 export class DynamicLoadingService {
   private eventStream: Subject<LoadingEvent> = new Subject<LoadingEvent>();
   private componentsLoading: Set<string> = new Set<string>();
-  private notifiedStartEvent = false;
 
   constructor() { }
 
   public startLoading(component?: string) {
-    if (!this.notifiedStartEvent) {
-      this.eventStream.next(createStartEvent(globalMetaComponent));
-      this.notifiedStartEvent = true;
-    }
+    this.eventStream.next(createStartEvent(globalMetaComponent));
     this.eventStream.next(createStartEvent(component));
     this.componentsLoading.add(component);
   }
@@ -26,7 +22,6 @@ export class DynamicLoadingService {
     this.componentsLoading.delete(component);
 
     if (this.componentsLoading.size === 0) {
-      this.notifiedStartEvent = false;
       this.eventStream.next(createStopEvent(globalMetaComponent));
     }
   }
@@ -39,6 +34,12 @@ export class DynamicLoadingService {
         }
       }
     );
+    // if the component was already loading before subscribing, call the callback
+    if (
+      this.componentsLoading.has(component)
+    ) {
+      callback(createStartEvent(component));
+    }
   }
 
   private subscribeOnAction(component: string, action: LoadingAction, callback: () => void) {
@@ -50,6 +51,13 @@ export class DynamicLoadingService {
         }
       }
     );
+    // if the component was already loading before subscribing, call the callback
+    if (
+      action === LoadingAction.START &&
+      this.componentsLoading.has(component)
+    ) {
+      callback();
+    }
   }
 
   public onStartLoading(component, callback: () => void) {
@@ -61,5 +69,6 @@ export class DynamicLoadingService {
   }
 }
 
-const createStartEvent = (component: string): LoadingEvent => ({ component, action: LoadingAction.START });
-const createStopEvent = (component: string): LoadingEvent => ({ component, action: LoadingAction.STOP });
+const createEvent = (component: string, action: LoadingAction): LoadingEvent => ({ component, action });
+const createStartEvent = (component: string): LoadingEvent => createEvent(component, LoadingAction.START);
+const createStopEvent = (component: string): LoadingEvent => createEvent(component, LoadingAction.STOP);
