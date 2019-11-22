@@ -106,4 +106,14 @@ However, if you want to make it global verbosely for the sake of clarity, use:
 <drm-dynamic-loading [global]="true"></drm-dynamic-loading>
 ```
 
+###### Options:
+
+ - `component`: the component to listen for updates on loading state.
+ - `global`: whether the spinner is global or not. Defaults to `false` if a `component` is specified, `true` otherwise.
+ - `color`: spinner path color, supports any html color
+ - `backgroundColor`: background color, supports any html color
+ - `showContentWhenLoading`: if `true` doesn't hide the content while loading. Defaults to `false`.
+ - `stylePosition`: CSS position. Can be `static`, `relative`, `fixed`, `absolute`, `sticky`. Defaults to `relative`.
+ - `zIndex`: CSS z-index for spinner only, useful when your element already has an high zIndex and you want to place the spinner over it. Defaults to `auto`.
+
 For a demo, download clone the project on github and run `ng s -o`.

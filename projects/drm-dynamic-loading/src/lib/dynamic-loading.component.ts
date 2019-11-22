@@ -17,6 +17,18 @@ export class DynamicLoadingComponent implements OnInit, AfterViewInit {
   @Input()
   color: string;
 
+  @Input()
+  backgroundColor: string;
+
+  @Input()
+  showContentWhenLoading = false;
+
+  @Input()
+  stylePosition: 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky';
+
+  @Input()
+  zIndex: number;
+
   @ViewChild('customLoadingWrapper', { static: false })
   customLoadingWrapper: ElementRef;
 
