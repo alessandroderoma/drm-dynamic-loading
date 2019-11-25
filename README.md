@@ -2,6 +2,15 @@
 
 Angular component for showing loading spinners.
 
+### Install
+
+```
+npm i --save drm-dynamic-loading
+```
+```
+yarn add drm-dynamic-loading
+```
+
 ### Usage
 
 Add module declaration in your module:
