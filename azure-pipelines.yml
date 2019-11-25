@@ -16,10 +16,10 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     npm install -g @angular/cli
     npm install
     npm run lint
     npm run build-angular-module
+    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > projects/drm-dynamic-loading/.npmrc
     npm run publish
   displayName: 'npm install and build'
