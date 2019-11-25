@@ -21,6 +21,6 @@ steps:
     npm install
     npm run lint
     npm run build-angular-module
-    npm-cli-login
+    NPM_USER=$(NPM_USER) NPM_PASS=$(NPM_PASS) NPM_EMAIL=$(NPM_EMAIL) npm-cli-login
     npm run publish
   displayName: 'npm install and build'
