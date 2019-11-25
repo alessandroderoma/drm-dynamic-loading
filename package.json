@@ -8,7 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "rm -rf dist && ng build drm-dynamic-loading && cd dist/drm-dynamic-loading/ && npm publish"
+    "build-angular-module": "rm -rf dist && ng build drm-dynamic-loading",
+    "publish": "cd dist/drm-dynamic-loading/ && npm publish",
+    "start-release": "git flow release start $(node projects/drm-dynamic-loading/get-next-version.js)",
+    "finish-release": "git flow release finish",
+    "release": "cd projects/drm-dynamic-loading && standard-version --skip tag"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +38,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "conventional-recommended-bump": "^6.0.5",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -42,10 +47,19 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "ng-packagr": "^5.7.1",
+    "nodegit": "^0.26.2",
+    "nodegit-flow": "^2.0.2",
     "protractor": "~5.4.0",
+    "semver": "^6.3.0",
+    "standard-version": "^7.0.1",
     "ts-node": "~7.0.0",
     "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
   }
 }
