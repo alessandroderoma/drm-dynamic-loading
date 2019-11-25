@@ -12,7 +12,7 @@
     "publish": "cd dist/drm-dynamic-loading/ && npm publish",
     "start-release": "git flow release start $(node projects/drm-dynamic-loading/get-next-version.js)",
     "finish-release": "git flow release finish",
-    "release": "cd projects/drm-dynamic-loading && standard-version --skip tag"
+    "release": "cd projects/drm-dynamic-loading && standard-version --skip.tag=true"
   },
   "private": true,
   "dependencies": {
@@ -56,10 +56,5 @@
     "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
-  },
-  "standard-version": {
-    "skip": {
-      "tag": true
-    }
   }
 }
