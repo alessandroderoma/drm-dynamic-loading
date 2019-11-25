@@ -17,9 +17,10 @@ steps:
 
 - script: |
     npm install -g @angular/cli
+    npm install -g npm-cli-login
     npm install
     npm run lint
     npm run build-angular-module
-    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > projects/drm-dynamic-loading/.npmrc
+    npm-cli-login
     npm run publish
   displayName: 'npm install and build'
