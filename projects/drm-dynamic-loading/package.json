@@ -1,6 +1,6 @@
 {
   "name": "drm-dynamic-loading",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "repository": "https://github.com/alessandroderoma/drm-dynamic-loading",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
